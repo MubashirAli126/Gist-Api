@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Octicon from 'react-octicon'
 import Search from './Search';
-import Button from './Button';
+// import Button from './Button';
 
 function Header() {
   return (
     <Wrapper>
       <Octicon name="mark-github" mega/>
       <Search />
-      <Button />
+      {/* <Button /> */}
     </Wrapper>
   )
 }

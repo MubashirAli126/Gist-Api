@@ -12,9 +12,15 @@ const GistList = ({ gists }) => {
                     let filesArray = Object.keys(obj);
                     return (
                         <li key={gist.id}>
-                            <div className='firstBar'>
-                                <div class="logo">
-                                    <img src={gist?.owner?.avatar_url} /> {gist?.owner?.login}
+                            <div className='d-flex flex-wrap flex-justify-end mb-3  container-xl  px-3 px-md-4 px-lg-5'>
+                                <div className='flex-auto min-width-0 width-fit mr-3'>
+                                    <div className=' d-flex flex-wrap flex-items-center wb-break-word f3 text-normal'>
+                                    <div className="logo">
+                                <image src={gist?.owner?.avatar_url} />
+                                 {gist?.owner?.login}
+                                </div>
+                                    </div>
+                          
                                 </div>
                                 <div>
                                 <ul>

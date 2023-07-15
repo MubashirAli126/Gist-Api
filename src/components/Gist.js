@@ -3,7 +3,7 @@ import GistService from '../services/gistService';
 import GistList from './GistList';
 
 const Gist = () => {
-    const username = 'salmanali09'; // Replace with the desired GitHub username
+    const username = 'mubashirali126'; // Replace with the desired GitHub username
   
     const { gists } = GistService({ username });
   

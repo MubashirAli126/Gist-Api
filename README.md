@@ -1,6 +1,8 @@
-We are on a mission to make the process of buying and selling easier and more convenient - and with your help, it will be possible. But before we work together, we would like to assess your programming abilities.
+## Gist Api
 
-Please find the small assignment below, that we would like for you to complete in the allotted time. (If you are reading this, the clock is already ticking).
+- In this project, I have created a gist project.
+- I used React Icons, Bootstrap, and styled components.
+
 
 ## Available Scripts
 

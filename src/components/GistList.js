@@ -1,68 +1,82 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
+import {FiCode} from 'react-icons/fi';
+import {PiGitFork} from 'react-icons/pi';
+import {BiComment} from 'react-icons/bi';
+import {BsFillStarFill} from 'react-icons/bs';
+import {RxReader} from 'react-icons/rx'
 
 const GistList = ({ gists }) => {
     // console.log(gists)
     return (
-        <Wrapper>
+        <Header>
             <ul>
                 {gists.map((gist) => {
                     let obj = gist?.files
                     let filesArray = Object.keys(obj);
                     return (
                         <li key={gist.id}>
-                            <div className='d-flex flex-wrap flex-justify-end mb-3  container-xl  px-3 px-md-4 px-lg-5'>
-                                <div className='flex-auto min-width-0 width-fit mr-3'>
-                                    <div className=' d-flex flex-wrap flex-items-center wb-break-word f3 text-normal'>
-                                    <div className="logo">
+                            <div className="avatar">
                                 <image src={gist?.owner?.avatar_url} />
                                  {gist?.owner?.login}
-                                </div>
-                                    </div>
-                          
-                                </div>
-                                <div>
-                                <ul>
-                                    <li>{filesArray.length}</li>
-                                    <li>Forks</li>
-                                    <li>{gist.comments}</li>
-                                    <li>Star</li>
-                                    </ul>
-                                </div>
                             </div>
-
+                            
+                            <div className='menu'> 
+                                <ul>
+                                    <li><FiCode /> {filesArray.length}</li>
+                                    <li><PiGitFork /> Forks</li>
+                                    <li><BiComment /> {gist.comments}</li>
+                                    <li>< BsFillStarFill/> Star</li>
+                                </ul>
+                            </div>
+                            <div className='publicstatuscheck'>Public: {gist.public ? 'Yes' : 'No'}</div>
                             <div className='dateTime'>
                                 <span> Created at: {moment(gist.created_at).format('DD/MM/YYYY')} </span>
                                 <span> Last Updated: {moment(gist.updated_at).format('DD/MM/YYYY')} </span>
                             </div>
-                            <h2>{gist.description}</h2>
-
-                            <ul>{filesArray?.map(data => <li>{obj[data].filename}</li>)} </ul>
-
-                            {gist.language && <p>Language: {gist.language}</p>}
-                            {gist.forks && <p>Forks: {gist.forks}</p>}
-                            <p>Comments: {gist.comments}</p>
-                            <p>Files: {Object.keys(gist.files).length}</p>
-                            <p>Public: {gist.public ? 'Yes' : 'No'}</p>
-                            <p>Owner: {gist.owner.login}</p>
-                            <p>URL: <a href={gist.html_url}>{gist.html_url}</a></p>
+                            <h1>{filesArray}</h1>
+                            <ul className="textblue">{filesArray?.map(data => <li><RxReader /> {obj[data].filename}</li>)} </ul>
                         </li>
                     )
                 })}
             </ul>
-        </Wrapper>
+        </Header>
     );
 };
 
-const Wrapper = styled.div`
-    text-align: center;
-    padding: 8px;
-    background-color: #fff
-    font-size: 14px;
-    line-height: 1.5;
-    border-radius: 6px;
-    margin: 0 16px;
+const Header = styled.header`
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: #888;
+  ul {
+    padding: 0px;
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+  }
+
+  .avatar {
+    float: left;
+    font-size: 20px;
+    color: #0096F0;
+  }
+  .menu {
+    float: right;
+    padding-left: 20px;
+    gap: 1em;
+    font-size: 15px;
+    color: #0096F0;
+  }
+  .menu li {
+    padding: 5px 14px;
+  }
+  .textblue {
+    color: #0096F0;
+  }
 `;
 
 export default GistList
